@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AsyncLock } from '../utils/lock.util.js';
 import { findConflicts } from '../utils/conflict.util.js';
+import { s3BookingsStorage } from '../utils/s3.util.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -84,6 +85,17 @@ class BookingRepository {
         return;
       }
 
+      if (s3BookingsStorage.isEnabled) {
+        try {
+          const remote = await s3BookingsStorage.load<BookingEntity[]>();
+          this.bookings = Array.isArray(remote) ? remote : [];
+          this.initialized = true;
+          return;
+        } catch (error) {
+          console.warn('Unable to load bookings from S3. Falling back to local file store.', error);
+        }
+      }
+
       if (!existsSync(DATA_FILE)) {
         await mkdir(path.dirname(DATA_FILE), { recursive: true });
         await writeFile(DATA_FILE, '[]', 'utf-8');
@@ -98,6 +110,11 @@ class BookingRepository {
   }
 
   private async persist() {
+    if (s3BookingsStorage.isEnabled) {
+      await s3BookingsStorage.save(this.bookings);
+      return;
+    }
+
     await writeFile(DATA_FILE, JSON.stringify(this.bookings, null, 2), 'utf-8');
   }
 
