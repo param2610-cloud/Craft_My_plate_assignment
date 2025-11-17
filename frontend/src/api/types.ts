@@ -38,6 +38,7 @@ export interface BookingFilters {
   status?: 'CONFIRMED' | 'CANCELLED';
   from?: string;
   to?: string;
+  [key: string]: string | undefined;
 }
 
 export interface AnalyticsRow {
