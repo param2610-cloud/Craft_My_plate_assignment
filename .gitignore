@@ -1,0 +1,4 @@
+*/node_modules
+*/dist
+*/.env
+/improved_requirement.md

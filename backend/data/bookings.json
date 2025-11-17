@@ -1,0 +1,79 @@
+[
+  {
+    "id": "booking_0de929ee-15b6-4bf7-ac28-cd15d2054c03",
+    "roomId": "room_4vs2bwd4",
+    "userName": "Scenario User A",
+    "startTime": "2025-11-18T03:30:00.000Z",
+    "endTime": "2025-11-18T04:30:00.000Z",
+    "totalPrice": 500,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:11:46.518Z",
+    "updatedAt": "2025-11-17T13:11:46.518Z"
+  },
+  {
+    "id": "booking_89bd3bb4-64f8-4d93-ac87-216bde14d267",
+    "roomId": "room_4vs2bwd4",
+    "userName": "Scenario User B",
+    "startTime": "2025-11-18T04:30:00.000Z",
+    "endTime": "2025-11-18T05:30:00.000Z",
+    "totalPrice": 750,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:11:46.522Z",
+    "updatedAt": "2025-11-17T13:11:46.522Z"
+  },
+  {
+    "id": "booking_3f1771d1-dc8e-4ebf-88b9-baeb180efcde",
+    "roomId": "room_ifu0n1qk",
+    "userName": "Pricing Test",
+    "startTime": "2025-11-18T04:00:00.000Z",
+    "endTime": "2025-11-18T05:00:00.000Z",
+    "totalPrice": 750,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:11:46.523Z",
+    "updatedAt": "2025-11-17T13:11:46.523Z"
+  },
+  {
+    "id": "booking_0018425b-3662-4155-a297-3feb71140ac7",
+    "roomId": "room_pu0wn52t",
+    "userName": "Cancel Later",
+    "startTime": "2025-11-18T07:30:00.000Z",
+    "endTime": "2025-11-18T08:30:00.000Z",
+    "totalPrice": 900,
+    "status": "CANCELLED",
+    "createdAt": "2025-11-17T13:11:46.524Z",
+    "updatedAt": "2025-11-17T13:11:46.526Z"
+  },
+  {
+    "id": "booking_f31bb24f-bd8a-4e8c-9119-cf1f728c2dca",
+    "roomId": "room_pu0wn52t",
+    "userName": "Cancel Soon",
+    "startTime": "2025-11-17T14:41:46.527Z",
+    "endTime": "2025-11-17T15:41:46.527Z",
+    "totalPrice": 900,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:11:46.527Z",
+    "updatedAt": "2025-11-17T13:11:46.527Z"
+  },
+  {
+    "id": "booking_a1e08530-90f6-4988-9814-3aace147fe39",
+    "roomId": "room_4vs2bwd4",
+    "userName": "Concurrent A",
+    "startTime": "2025-11-18T09:30:00.000Z",
+    "endTime": "2025-11-18T10:30:00.000Z",
+    "totalPrice": 500,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:11:46.528Z",
+    "updatedAt": "2025-11-17T13:11:46.528Z"
+  },
+  {
+    "id": "booking_f98e3784-d4c3-40d3-803c-f8ba58176ad2",
+    "roomId": "room_qtijw7h7",
+    "userName": "Parambrata Ghosh",
+    "startTime": "2025-11-24T04:30:00.000Z",
+    "endTime": "2025-11-24T05:30:00.000Z",
+    "totalPrice": 1350,
+    "status": "CONFIRMED",
+    "createdAt": "2025-11-17T13:25:03.365Z",
+    "updatedAt": "2025-11-17T13:25:03.365Z"
+  }
+]
