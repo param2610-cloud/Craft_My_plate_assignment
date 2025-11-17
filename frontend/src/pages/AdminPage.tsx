@@ -85,7 +85,7 @@ export const AdminPage = ({ refreshKey }: AdminPageProps) => {
           {actionMessage.text}
         </Message>
       )}
-      <div className="grid two-columns">
+      <div>
         <div>
           <h3>Bookings</h3>
           {loading && <p>Loading bookings…</p>}
