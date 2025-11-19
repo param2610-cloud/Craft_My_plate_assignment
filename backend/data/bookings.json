@@ -1,79 +1,681 @@
-[
-  {
-    "id": "booking_0de929ee-15b6-4bf7-ac28-cd15d2054c03",
-    "roomId": "room_4vs2bwd4",
-    "userName": "Scenario User A",
-    "startTime": "2025-11-18T03:30:00.000Z",
-    "endTime": "2025-11-18T04:30:00.000Z",
-    "totalPrice": 500,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:11:46.518Z",
-    "updatedAt": "2025-11-17T13:11:46.518Z"
-  },
-  {
-    "id": "booking_89bd3bb4-64f8-4d93-ac87-216bde14d267",
-    "roomId": "room_4vs2bwd4",
-    "userName": "Scenario User B",
-    "startTime": "2025-11-18T04:30:00.000Z",
-    "endTime": "2025-11-18T05:30:00.000Z",
-    "totalPrice": 750,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:11:46.522Z",
-    "updatedAt": "2025-11-17T13:11:46.522Z"
-  },
-  {
-    "id": "booking_3f1771d1-dc8e-4ebf-88b9-baeb180efcde",
-    "roomId": "room_ifu0n1qk",
-    "userName": "Pricing Test",
-    "startTime": "2025-11-18T04:00:00.000Z",
-    "endTime": "2025-11-18T05:00:00.000Z",
-    "totalPrice": 750,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:11:46.523Z",
-    "updatedAt": "2025-11-17T13:11:46.523Z"
-  },
-  {
-    "id": "booking_0018425b-3662-4155-a297-3feb71140ac7",
-    "roomId": "room_pu0wn52t",
-    "userName": "Cancel Later",
-    "startTime": "2025-11-18T07:30:00.000Z",
-    "endTime": "2025-11-18T08:30:00.000Z",
-    "totalPrice": 900,
-    "status": "CANCELLED",
-    "createdAt": "2025-11-17T13:11:46.524Z",
-    "updatedAt": "2025-11-17T13:11:46.526Z"
-  },
-  {
-    "id": "booking_f31bb24f-bd8a-4e8c-9119-cf1f728c2dca",
-    "roomId": "room_pu0wn52t",
-    "userName": "Cancel Soon",
-    "startTime": "2025-11-17T14:41:46.527Z",
-    "endTime": "2025-11-17T15:41:46.527Z",
-    "totalPrice": 900,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:11:46.527Z",
-    "updatedAt": "2025-11-17T13:11:46.527Z"
-  },
-  {
-    "id": "booking_a1e08530-90f6-4988-9814-3aace147fe39",
-    "roomId": "room_4vs2bwd4",
-    "userName": "Concurrent A",
-    "startTime": "2025-11-18T09:30:00.000Z",
-    "endTime": "2025-11-18T10:30:00.000Z",
-    "totalPrice": 500,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:11:46.528Z",
-    "updatedAt": "2025-11-17T13:11:46.528Z"
-  },
-  {
-    "id": "booking_f98e3784-d4c3-40d3-803c-f8ba58176ad2",
-    "roomId": "room_qtijw7h7",
-    "userName": "Parambrata Ghosh",
-    "startTime": "2025-11-24T04:30:00.000Z",
-    "endTime": "2025-11-24T05:30:00.000Z",
-    "totalPrice": 1350,
-    "status": "CONFIRMED",
-    "createdAt": "2025-11-17T13:25:03.365Z",
-    "updatedAt": "2025-11-17T13:25:03.365Z"
-  }
-]
+{
+  "rooms": [
+    { "id": "room_1", "name": "Focus Cabin A", "baseHourlyRate": 500, "capacity": 2 },
+    { "id": "room_2", "name": "Focus Cabin B", "baseHourlyRate": 500, "capacity": 2 },
+    { "id": "room_3", "name": "Focus Cabin C", "baseHourlyRate": 550, "capacity": 3 },
+
+    { "id": "room_4", "name": "Meeting Room Alpha", "baseHourlyRate": 750, "capacity": 6 },
+    { "id": "room_5", "name": "Meeting Room Beta", "baseHourlyRate": 800, "capacity": 6 },
+    { "id": "room_6", "name": "Meeting Room Gamma", "baseHourlyRate": 850, "capacity": 8 },
+
+    { "id": "room_7", "name": "War Room A", "baseHourlyRate": 900, "capacity": 8 },
+    { "id": "room_8", "name": "War Room B", "baseHourlyRate": 950, "capacity": 10 },
+
+    { "id": "room_9", "name": "Board Room A", "baseHourlyRate": 1200, "capacity": 12 },
+    { "id": "room_10", "name": "Board Room B", "baseHourlyRate": 1300, "capacity": 14 },
+
+    { "id": "room_11", "name": "Training Hall 1", "baseHourlyRate": 1500, "capacity": 20 },
+    { "id": "room_12", "name": "Training Hall 2", "baseHourlyRate": 1600, "capacity": 25 },
+
+    { "id": "room_13", "name": "Conference Hall A", "baseHourlyRate": 2000, "capacity": 40 },
+    { "id": "room_14", "name": "Conference Hall B", "baseHourlyRate": 2300, "capacity": 45 },
+
+    { "id": "room_15", "name": "Brainstorm Hub A", "baseHourlyRate": 900, "capacity": 6 },
+    { "id": "room_16", "name": "Brainstorm Hub B", "baseHourlyRate": 950, "capacity": 8 },
+
+    { "id": "room_17", "name": "Private Suite A", "baseHourlyRate": 1800, "capacity": 4 },
+    { "id": "room_18", "name": "Private Suite B", "baseHourlyRate": 1900, "capacity": 4 },
+
+    { "id": "room_19", "name": "Studio A", "baseHourlyRate": 2200, "capacity": 12 },
+    { "id": "room_20", "name": "Studio B", "baseHourlyRate": 2500, "capacity": 15 }
+  ],
+  "bookings": [
+    {
+      "id": "booking_1",
+      "roomId": "room_1",
+      "roomName": "Focus Cabin A",
+      "userName": "Ananya Kapoor",
+      "startTime": "2025-11-21T09:00:00.000Z",
+      "endTime": "2025-11-21T11:00:00.000Z",
+      "totalPrice": 1000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T08:15:00.000Z",
+      "updatedAt": "2025-11-19T08:15:00.000Z"
+    },
+    {
+      "id": "booking_2",
+      "roomId": "room_1",
+      "roomName": "Focus Cabin A",
+      "userName": "Rohit Sharma",
+      "startTime": "2025-11-22T13:00:00.000Z",
+      "endTime": "2025-11-22T15:00:00.000Z",
+      "totalPrice": 1000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T09:20:00.000Z",
+      "updatedAt": "2025-11-19T09:20:00.000Z"
+    },
+
+    {
+      "id": "booking_3",
+      "roomId": "room_2",
+      "roomName": "Focus Cabin B",
+      "userName": "Priya Iyer",
+      "startTime": "2025-11-23T10:00:00.000Z",
+      "endTime": "2025-11-23T12:00:00.000Z",
+      "totalPrice": 1000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T10:05:00.000Z",
+      "updatedAt": "2025-11-19T10:05:00.000Z"
+    },
+
+    {
+      "id": "booking_4",
+      "roomId": "room_2",
+      "roomName": "Focus Cabin B",
+      "userName": "Karan Verma",
+      "startTime": "2025-11-24T14:00:00.000Z",
+      "endTime": "2025-11-24T16:00:00.000Z",
+      "totalPrice": 1000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T10:40:00.000Z",
+      "updatedAt": "2025-11-19T10:40:00.000Z"
+    },
+
+    {
+      "id": "booking_5",
+      "roomId": "room_3",
+      "roomName": "Focus Cabin C",
+      "userName": "Aditi Nair",
+      "startTime": "2025-11-22T09:00:00.000Z",
+      "endTime": "2025-11-22T12:00:00.000Z",
+      "totalPrice": 1650,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T11:10:00.000Z",
+      "updatedAt": "2025-11-19T11:10:00.000Z"
+    },
+
+    {
+      "id": "booking_6",
+      "roomId": "room_3",
+      "roomName": "Focus Cabin C",
+      "userName": "Nikhil Das",
+      "startTime": "2025-11-23T15:00:00.000Z",
+      "endTime": "2025-11-23T17:00:00.000Z",
+      "totalPrice": 1100,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T11:45:00.000Z",
+      "updatedAt": "2025-11-19T11:45:00.000Z"
+    },
+
+    {
+      "id": "booking_7",
+      "roomId": "room_4",
+      "roomName": "Meeting Room Alpha",
+      "userName": "Sneha Reddy",
+      "startTime": "2025-11-25T09:00:00.000Z",
+      "endTime": "2025-11-25T11:00:00.000Z",
+      "totalPrice": 1500,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T12:20:00.000Z",
+      "updatedAt": "2025-11-19T12:20:00.000Z"
+    },
+    {
+      "id": "booking_8",
+      "roomId": "room_4",
+      "roomName": "Meeting Room Alpha",
+      "userName": "Aman Gupta",
+      "startTime": "2025-11-26T14:00:00.000Z",
+      "endTime": "2025-11-26T16:00:00.000Z",
+      "totalPrice": 1500,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T12:45:00.000Z",
+      "updatedAt": "2025-11-19T12:45:00.000Z"
+    },
+
+    {
+      "id": "booking_9",
+      "roomId": "room_5",
+      "roomName": "Meeting Room Beta",
+      "userName": "Tanya Singh",
+      "startTime": "2025-11-21T10:00:00.000Z",
+      "endTime": "2025-11-21T12:30:00.000Z",
+      "totalPrice": 2000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T13:10:00.000Z",
+      "updatedAt": "2025-11-19T13:10:00.000Z"
+    },
+
+    {
+      "id": "booking_10",
+      "roomId": "room_5",
+      "roomName": "Meeting Room Beta",
+      "userName": "Harshit Malhotra",
+      "startTime": "2025-11-23T09:00:00.000Z",
+      "endTime": "2025-11-23T11:00:00.000Z",
+      "totalPrice": 1600,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T13:35:00.000Z",
+      "updatedAt": "2025-11-19T13:35:00.000Z"
+    },
+
+    {
+      "id": "booking_11",
+      "roomId": "room_6",
+      "roomName": "Meeting Room Gamma",
+      "userName": "Shreya Dutta",
+      "startTime": "2025-11-24T08:00:00.000Z",
+      "endTime": "2025-11-24T10:00:00.000Z",
+      "totalPrice": 1700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T14:00:00.000Z",
+      "updatedAt": "2025-11-19T14:00:00.000Z"
+    },
+
+    {
+      "id": "booking_12",
+      "roomId": "room_6",
+      "roomName": "Meeting Room Gamma",
+      "userName": "Arvind Kumar",
+      "startTime": "2025-11-25T15:00:00.000Z",
+      "endTime": "2025-11-25T17:00:00.000Z",
+      "totalPrice": 1700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T14:20:00.000Z",
+      "updatedAt": "2025-11-19T14:20:00.000Z"
+    },
+
+    {
+      "id": "booking_13",
+      "roomId": "room_7",
+      "roomName": "War Room A",
+      "userName": "Meera Sethi",
+      "startTime": "2025-11-26T09:00:00.000Z",
+      "endTime": "2025-11-26T12:00:00.000Z",
+      "totalPrice": 2700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T15:00:00.000Z",
+      "updatedAt": "2025-11-19T15:00:00.000Z"
+    },
+
+    {
+      "id": "booking_14",
+      "roomId": "room_7",
+      "roomName": "War Room A",
+      "userName": "Vikas Mehta",
+      "startTime": "2025-11-27T13:00:00.000Z",
+      "endTime": "2025-11-27T16:00:00.000Z",
+      "totalPrice": 2700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T15:35:00.000Z",
+      "updatedAt": "2025-11-19T15:35:00.000Z"
+    },
+
+    {
+      "id": "booking_15",
+      "roomId": "room_8",
+      "roomName": "War Room B",
+      "userName": "Neha Jain",
+      "startTime": "2025-11-22T11:00:00.000Z",
+      "endTime": "2025-11-22T14:00:00.000Z",
+      "totalPrice": 2850,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T16:00:00.000Z",
+      "updatedAt": "2025-11-19T16:00:00.000Z"
+    },
+
+    {
+      "id": "booking_16",
+      "roomId": "room_8",
+      "roomName": "War Room B",
+      "userName": "Sanjay Patel",
+      "startTime": "2025-11-23T15:00:00.000Z",
+      "endTime": "2025-11-23T18:00:00.000Z",
+      "totalPrice": 2850,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T16:20:00.000Z",
+      "updatedAt": "2025-11-19T16:20:00.000Z"
+    },
+
+    {
+      "id": "booking_17",
+      "roomId": "room_9",
+      "roomName": "Board Room A",
+      "userName": "Kritika Sharma",
+      "startTime": "2025-11-21T09:00:00.000Z",
+      "endTime": "2025-11-21T12:00:00.000Z",
+      "totalPrice": 3600,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T17:00:00.000Z",
+      "updatedAt": "2025-11-19T17:00:00.000Z"
+    },
+
+    {
+      "id": "booking_18",
+      "roomId": "room_9",
+      "roomName": "Board Room A",
+      "userName": "Aakash Bawa",
+      "startTime": "2025-11-23T14:00:00.000Z",
+      "endTime": "2025-11-23T17:00:00.000Z",
+      "totalPrice": 3600,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T17:20:00.000Z",
+      "updatedAt": "2025-11-19T17:20:00.000Z"
+    },
+
+    {
+      "id": "booking_19",
+      "roomId": "room_10",
+      "roomName": "Board Room B",
+      "userName": "Riya Mittal",
+      "startTime": "2025-11-28T09:00:00.000Z",
+      "endTime": "2025-11-28T11:00:00.000Z",
+      "totalPrice": 2600,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T18:00:00.000Z",
+      "updatedAt": "2025-11-19T18:00:00.000Z"
+    },
+
+    {
+      "id": "booking_20",
+      "roomId": "room_10",
+      "roomName": "Board Room B",
+      "userName": "Raghav Khanna",
+      "startTime": "2025-11-29T13:00:00.000Z",
+      "endTime": "2025-11-29T16:00:00.000Z",
+      "totalPrice": 3900,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-19T18:20:00.000Z",
+      "updatedAt": "2025-11-19T18:20:00.000Z"
+    },
+
+    {
+      "id": "booking_21",
+      "roomId": "room_11",
+      "roomName": "Training Hall 1",
+      "userName": "TechNova Pvt Ltd",
+      "startTime": "2025-11-25T09:00:00.000Z",
+      "endTime": "2025-11-25T13:00:00.000Z",
+      "totalPrice": 6000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T07:10:00.000Z",
+      "updatedAt": "2025-11-20T07:10:00.000Z"
+    },
+
+    {
+      "id": "booking_22",
+      "roomId": "room_11",
+      "roomName": "Training Hall 1",
+      "userName": "NeonSoft Solutions",
+      "startTime": "2025-11-26T13:00:00.000Z",
+      "endTime": "2025-11-26T17:00:00.000Z",
+      "totalPrice": 6000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T07:35:00.000Z",
+      "updatedAt": "2025-11-20T07:35:00.000Z"
+    },
+
+    {
+      "id": "booking_23",
+      "roomId": "room_12",
+      "roomName": "Training Hall 2",
+      "userName": "SkillBridge Academy",
+      "startTime": "2025-11-27T10:00:00.000Z",
+      "endTime": "2025-11-27T15:00:00.000Z",
+      "totalPrice": 8000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T08:00:00.000Z",
+      "updatedAt": "2025-11-20T08:00:00.000Z"
+    },
+
+    {
+      "id": "booking_24",
+      "roomId": "room_12",
+      "roomName": "Training Hall 2",
+      "userName": "EduPrime",
+      "startTime": "2025-11-28T09:00:00.000Z",
+      "endTime": "2025-11-28T13:00:00.000Z",
+      "totalPrice": 6400,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T08:20:00.000Z",
+      "updatedAt": "2025-11-20T08:20:00.000Z"
+    },
+
+    {
+      "id": "booking_25",
+      "roomId": "room_13",
+      "roomName": "Conference Hall A",
+      "userName": "SummitCorp",
+      "startTime": "2025-12-01T09:00:00.000Z",
+      "endTime": "2025-12-01T17:00:00.000Z",
+      "totalPrice": 16000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T09:00:00.000Z",
+      "updatedAt": "2025-11-20T09:00:00.000Z"
+    },
+
+    {
+      "id": "booking_26",
+      "roomId": "room_13",
+      "roomName": "Conference Hall A",
+      "userName": "EventSphere",
+      "startTime": "2025-12-03T10:00:00.000Z",
+      "endTime": "2025-12-03T15:00:00.000Z",
+      "totalPrice": 10000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T09:20:00.000Z",
+      "updatedAt": "2025-11-20T09:20:00.000Z"
+    },
+
+    {
+      "id": "booking_27",
+      "roomId": "room_14",
+      "roomName": "Conference Hall B",
+      "userName": "VisionMeet",
+      "startTime": "2025-12-02T09:00:00.000Z",
+      "endTime": "2025-12-02T16:00:00.000Z",
+      "totalPrice": 16100,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T09:50:00.000Z",
+      "updatedAt": "2025-11-20T09:50:00.000Z"
+    },
+
+    {
+      "id": "booking_28",
+      "roomId": "room_14",
+      "roomName": "Conference Hall B",
+      "userName": "NextWave Technologies",
+      "startTime": "2025-12-04T10:00:00.000Z",
+      "endTime": "2025-12-04T14:00:00.000Z",
+      "totalPrice": 9200,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T10:20:00.000Z",
+      "updatedAt": "2025-11-20T10:20:00.000Z"
+    },
+
+    {
+      "id": "booking_29",
+      "roomId": "room_15",
+      "roomName": "Brainstorm Hub A",
+      "userName": "Rahul Arora",
+      "startTime": "2025-11-24T09:00:00.000Z",
+      "endTime": "2025-11-24T11:00:00.000Z",
+      "totalPrice": 1800,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T10:40:00.000Z",
+      "updatedAt": "2025-11-20T10:40:00.000Z"
+    },
+
+    {
+      "id": "booking_30",
+      "roomId": "room_15",
+      "roomName": "Brainstorm Hub A",
+      "userName": "Sneha Nanda",
+      "startTime": "2025-11-26T14:00:00.000Z",
+      "endTime": "2025-11-26T17:00:00.000Z",
+      "totalPrice": 2700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T10:55:00.000Z",
+      "updatedAt": "2025-11-20T10:55:00.000Z"
+    },
+
+    {
+      "id": "booking_31",
+      "roomId": "room_16",
+      "roomName": "Brainstorm Hub B",
+      "userName": "Ishaan Roy",
+      "startTime": "2025-11-25T10:00:00.000Z",
+      "endTime": "2025-11-25T12:00:00.000Z",
+      "totalPrice": 1900,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T11:10:00.000Z",
+      "updatedAt": "2025-11-20T11:10:00.000Z"
+    },
+
+    {
+      "id": "booking_32",
+      "roomId": "room_16",
+      "roomName": "Brainstorm Hub B",
+      "userName": "Aarav Bansal",
+      "startTime": "2025-11-27T15:00:00.000Z",
+      "endTime": "2025-11-27T18:00:00.000Z",
+      "totalPrice": 2850,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T11:25:00.000Z",
+      "updatedAt": "2025-11-20T11:25:00.000Z"
+    },
+
+    {
+      "id": "booking_33",
+      "roomId": "room_17",
+      "roomName": "Private Suite A",
+      "userName": "Maya Kapoor",
+      "startTime": "2025-11-29T09:00:00.000Z",
+      "endTime": "2025-11-29T12:00:00.000Z",
+      "totalPrice": 5400,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T11:40:00.000Z",
+      "updatedAt": "2025-11-20T11:40:00.000Z"
+    },
+
+    {
+      "id": "booking_34",
+      "roomId": "room_17",
+      "roomName": "Private Suite A",
+      "userName": "Karthik R",
+      "startTime": "2025-11-30T13:00:00.000Z",
+      "endTime": "2025-11-30T16:00:00.000Z",
+      "totalPrice": 5400,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T11:55:00.000Z",
+      "updatedAt": "2025-11-20T11:55:00.000Z"
+    },
+
+    {
+      "id": "booking_35",
+      "roomId": "room_18",
+      "roomName": "Private Suite B",
+      "userName": "Aishwarya Sen",
+      "startTime": "2025-12-01T09:00:00.000Z",
+      "endTime": "2025-12-01T12:00:00.000Z",
+      "totalPrice": 5700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T12:10:00.000Z",
+      "updatedAt": "2025-11-20T12:10:00.000Z"
+    },
+
+    {
+      "id": "booking_36",
+      "roomId": "room_18",
+      "roomName": "Private Suite B",
+      "userName": "Samar Dey",
+      "startTime": "2025-12-02T14:00:00.000Z",
+      "endTime": "2025-12-02T17:00:00.000Z",
+      "totalPrice": 5700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T12:25:00.000Z",
+      "updatedAt": "2025-11-20T12:25:00.000Z"
+    },
+
+    {
+      "id": "booking_37",
+      "roomId": "room_19",
+      "roomName": "Studio A",
+      "userName": "CreativeHive",
+      "startTime": "2025-11-22T10:00:00.000Z",
+      "endTime": "2025-11-22T14:00:00.000Z",
+      "totalPrice": 8800,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T12:40:00.000Z",
+      "updatedAt": "2025-11-20T12:40:00.000Z"
+    },
+
+    {
+      "id": "booking_38",
+      "roomId": "room_19",
+      "roomName": "Studio A",
+      "userName": "ArtPro Media",
+      "startTime": "2025-11-24T09:00:00.000Z",
+      "endTime": "2025-11-24T13:00:00.000Z",
+      "totalPrice": 8800,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T13:05:00.000Z",
+      "updatedAt": "2025-11-20T13:05:00.000Z"
+    },
+
+    {
+      "id": "booking_39",
+      "roomId": "room_20",
+      "roomName": "Studio B",
+      "userName": "BrandWorks Studio",
+      "startTime": "2025-11-23T11:00:00.000Z",
+      "endTime": "2025-11-23T16:00:00.000Z",
+      "totalPrice": 12500,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T13:25:00.000Z",
+      "updatedAt": "2025-11-20T13:25:00.000Z"
+    },
+
+    {
+      "id": "booking_40",
+      "roomId": "room_20",
+      "roomName": "Studio B",
+      "userName": "FilmCraft House",
+      "startTime": "2025-11-25T10:00:00.000Z",
+      "endTime": "2025-11-25T15:00:00.000Z",
+      "totalPrice": 12500,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T13:45:00.000Z",
+      "updatedAt": "2025-11-20T13:45:00.000Z"
+    },
+
+    {
+      "id": "booking_41",
+      "roomId": "room_3",
+      "roomName": "Focus Cabin C",
+      "userName": "Sahil Khan",
+      "startTime": "2025-11-27T09:00:00.000Z",
+      "endTime": "2025-11-27T11:00:00.000Z",
+      "totalPrice": 1100,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T14:00:00.000Z",
+      "updatedAt": "2025-11-20T14:00:00.000Z"
+    },
+
+    {
+      "id": "booking_42",
+      "roomId": "room_5",
+      "roomName": "Meeting Room Beta",
+      "userName": "GreenByte Solutions",
+      "startTime": "2025-11-29T09:00:00.000Z",
+      "endTime": "2025-11-29T12:00:00.000Z",
+      "totalPrice": 2400,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T14:20:00.000Z",
+      "updatedAt": "2025-11-20T14:20:00.000Z"
+    },
+
+    {
+      "id": "booking_43",
+      "roomId": "room_9",
+      "roomName": "Board Room A",
+      "userName": "SilverOak Inc",
+      "startTime": "2025-11-30T10:00:00.000Z",
+      "endTime": "2025-11-30T13:00:00.000Z",
+      "totalPrice": 3600,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T14:45:00.000Z",
+      "updatedAt": "2025-11-20T14:45:00.000Z"
+    },
+
+    {
+      "id": "booking_44",
+      "roomId": "room_11",
+      "roomName": "Training Hall 1",
+      "userName": "PeakLearn",
+      "startTime": "2025-12-03T09:00:00.000Z",
+      "endTime": "2025-12-03T12:00:00.000Z",
+      "totalPrice": 4500,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T15:05:00.000Z",
+      "updatedAt": "2025-11-20T15:05:00.000Z"
+    },
+
+    {
+      "id": "booking_45",
+      "roomId": "room_14",
+      "roomName": "Conference Hall B",
+      "userName": "DevCon India",
+      "startTime": "2025-12-05T10:00:00.000Z",
+      "endTime": "2025-12-05T17:00:00.000Z",
+      "totalPrice": 16100,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T15:30:00.000Z",
+      "updatedAt": "2025-11-20T15:30:00.000Z"
+    },
+
+    {
+      "id": "booking_46",
+      "roomId": "room_19",
+      "roomName": "Studio A",
+      "userName": "MediaSpark",
+      "startTime": "2025-11-29T13:00:00.000Z",
+      "endTime": "2025-11-29T17:00:00.000Z",
+      "totalPrice": 8800,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T15:45:00.000Z",
+      "updatedAt": "2025-11-20T15:45:00.000Z"
+    },
+
+    {
+      "id": "booking_47",
+      "roomId": "room_6",
+      "roomName": "Meeting Room Gamma",
+      "userName": "NexTech Labs",
+      "startTime": "2025-11-29T14:00:00.000Z",
+      "endTime": "2025-11-29T17:00:00.000Z",
+      "totalPrice": 2550,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T16:05:00.000Z",
+      "updatedAt": "2025-11-20T16:05:00.000Z"
+    },
+
+    {
+      "id": "booking_48",
+      "roomId": "room_7",
+      "roomName": "War Room A",
+      "userName": "CoreLink Team",
+      "startTime": "2025-12-01T14:00:00.000Z",
+      "endTime": "2025-12-01T17:00:00.000Z",
+      "totalPrice": 2700,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T16:25:00.000Z",
+      "updatedAt": "2025-11-20T16:25:00.000Z"
+    },
+
+    {
+      "id": "booking_49",
+      "roomId": "room_12",
+      "roomName": "Training Hall 2",
+      "userName": "BrightFuture Institute",
+      "startTime": "2025-12-04T09:00:00.000Z",
+      "endTime": "2025-12-04T11:00:00.000Z",
+      "totalPrice": 3200,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T16:45:00.000Z",
+      "updatedAt": "2025-11-20T16:45:00.000Z"
+    },
+
+    {
+      "id": "booking_50",
+      "roomId": "room_20",
+      "roomName": "Studio B",
+      "userName": "PixelForge Films",
+      "startTime": "2025-12-06T10:00:00.000Z",
+      "endTime": "2025-12-06T14:00:00.000Z",
+      "totalPrice": 10000,
+      "status": "CONFIRMED",
+      "createdAt": "2025-11-20T17:00:00.000Z",
+      "updatedAt": "2025-11-20T17:00:00.000Z"
+    }
+  ]
+}
