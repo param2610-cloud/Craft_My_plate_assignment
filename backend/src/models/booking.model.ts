@@ -151,6 +151,55 @@ class BookingRepository {
       .map((booking) => ({ ...booking }));
   }
 
+  async findPaginated(filters: BookingFilters = {}, page = 1, pageSize = 20) {
+    await this.ensureLoaded();
+    const normalizedPage = Math.max(1, Math.floor(page));
+    const normalizedPageSize = Math.max(1, Math.floor(pageSize));
+
+    const fromBoundary = filters.from ? new Date(filters.from).getTime() : undefined;
+    const toBoundary = filters.to ? new Date(filters.to).getTime() : undefined;
+
+    const filtered = this.bookings
+      .filter((booking) => {
+        if (filters.roomId && booking.roomId !== filters.roomId) {
+          return false;
+        }
+        if (filters.status && booking.status !== filters.status) {
+          return false;
+        }
+        if (fromBoundary && new Date(booking.startTime).getTime() < fromBoundary) {
+          return false;
+        }
+        if (toBoundary && new Date(booking.endTime).getTime() > toBoundary) {
+          return false;
+        }
+        return true;
+      })
+      .sort((a, b) => {
+        const timeA = new Date(a.startTime).getTime();
+        const timeB = new Date(b.startTime).getTime();
+        const safeA = Number.isNaN(timeA) ? 0 : timeA;
+        const safeB = Number.isNaN(timeB) ? 0 : timeB;
+        return safeB - safeA;
+      });
+
+    const total = filtered.length;
+    const offset = (normalizedPage - 1) * normalizedPageSize;
+    const data = filtered
+      .slice(offset, offset + normalizedPageSize)
+      .map((booking) => ({ ...booking }));
+
+    return { data, total, page: normalizedPage, pageSize: normalizedPageSize };
+  }
+
+  async clearAll() {
+    await this.ensureLoaded();
+    await this.fileLock.runExclusive(async () => {
+      this.bookings = [];
+      await this.persist();
+    });
+  }
+
   async findById(id: string): Promise<BookingEntity | null> {
     await this.ensureLoaded();
     const booking = this.bookings.find((entry) => entry.id === id);

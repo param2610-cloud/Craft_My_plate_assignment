@@ -1,5 +1,5 @@
+import { Container, Typography } from '@mui/material';
 import { BookingForm } from '../components/BookingForm';
-import { Section } from '../components/Section';
 
 interface BookingPageProps {
   onBookingCreated?: () => void;
@@ -7,11 +7,14 @@ interface BookingPageProps {
 
 export const BookingPage = ({ onBookingCreated }: BookingPageProps) => {
   return (
-    <Section
-      title="Create Booking"
-      description="Pick a room, add times, and send the request."
-    >
+    <Container sx={{ mt: 4 }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Create Booking
+      </Typography>
+      <Typography variant="subtitle1" color="text.secondary" gutterBottom>
+        Pick a room, add times, and send the request.
+      </Typography>
       <BookingForm onBookingCreated={onBookingCreated} />
-    </Section>
+    </Container>
   );
 };

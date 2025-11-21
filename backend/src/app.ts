@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { registerRoomRoutes } from './routes/room.routes.js';
 import { registerBookingRoutes } from './routes/booking.routes.js';
 import { registerAnalyticsRoutes } from './routes/analytics.routes.js';
+import { registerAdminRoutes } from './routes/admin.routes.js';
 import { errorMiddleware } from './middlewares/error.middleware.js';
 
 const app = express();
@@ -31,6 +32,7 @@ app.get('/health', (_req, res) => {
 registerRoomRoutes(app);
 registerBookingRoutes(app);
 registerAnalyticsRoutes(app);
+registerAdminRoutes(app);
 
 app.use(errorMiddleware);
 

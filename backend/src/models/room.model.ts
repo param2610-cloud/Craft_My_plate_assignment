@@ -28,6 +28,11 @@ class RoomRepository {
     this.rooms.push(entity);
     return Promise.resolve(entity);
   }
+
+  reset() {
+    this.rooms = [];
+    return Promise.resolve();
+  }
 }
 
 export const RoomModel = new RoomRepository();

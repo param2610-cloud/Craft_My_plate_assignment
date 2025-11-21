@@ -38,7 +38,21 @@ export interface BookingFilters {
   status?: 'CONFIRMED' | 'CANCELLED';
   from?: string;
   to?: string;
-  [key: string]: string | undefined;
+}
+
+export interface PaginationQuery {
+  page?: number;
+  pageSize?: number;
+}
+
+export type BookingListParams = BookingFilters & PaginationQuery;
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  page: number;
+  pageSize: number;
+  total: number;
+  hasMore: boolean;
 }
 
 export interface AnalyticsRow {

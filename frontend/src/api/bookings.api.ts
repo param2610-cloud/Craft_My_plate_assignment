@@ -1,12 +1,12 @@
 import { apiClient, buildQueryString } from './client';
-import { Booking, BookingFilters, CreateBookingPayload } from './types';
+import { Booking, BookingListParams, CreateBookingPayload, PaginatedResponse } from './types';
 
 const basePath = '/api/bookings';
 
 export const BookingsApi = {
-  async list(filters: BookingFilters = {}) {
-    const query = buildQueryString(filters);
-    return apiClient.get<Booking[]>(`${basePath}${query}`);
+  async list(params: BookingListParams = {}) {
+    const query = buildQueryString(params as Record<string, string | number | undefined>);
+    return apiClient.get<PaginatedResponse<Booking>>(`${basePath}${query}`);
   },
   async create(payload: CreateBookingPayload) {
     return apiClient.post<Booking>(basePath, payload);

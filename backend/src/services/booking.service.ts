@@ -17,17 +17,41 @@ export interface CancelBookingInput {
   cancelledBy?: string;
 }
 
+interface PaginationOptions {
+  page?: number;
+  pageSize?: number;
+}
+
+export interface PaginatedBookings<T> {
+  data: T[];
+  page: number;
+  pageSize: number;
+  total: number;
+  hasMore: boolean;
+}
+
 const MAX_DURATION_MS = 12 * 60 * 60 * 1000;
 const TWO_HOURS_IN_MS = 2 * 60 * 60 * 1000;
 
 class BookingService {
   private creationLock = new AsyncLock();
 
-  async listBookings(filters: BookingFilters = {}) {
+  async listBookings(
+    filters: BookingFilters = {},
+    pagination: PaginationOptions = {}
+  ): Promise<PaginatedBookings<BookingEntity & { roomName: string }>> {
     const validated = this.validateFilters(filters);
-    const bookings = await BookingModel.findAll(validated);
+    const { page, pageSize } = this.normalizePagination(pagination);
+    const { data, total } = await BookingModel.findPaginated(validated, page, pageSize);
+    const enriched = await Promise.all(data.map((booking) => this.withRoomName(booking)));
 
-    return Promise.all(bookings.map((booking) => this.withRoomName(booking)));
+    return {
+      data: enriched,
+      page,
+      pageSize,
+      total,
+      hasMore: page * pageSize < total
+    };
   }
 
   async createBooking(payload: CreateBookingInput) {
@@ -125,6 +149,22 @@ class BookingService {
       ...booking,
       roomName: room?.name ?? booking.roomId
     };
+  }
+
+  private normalizePagination(options: PaginationOptions) {
+    const defaultPage = 1;
+    const defaultPageSize = 20;
+    const maxPageSize = 50;
+
+    const pageValue = Number(options.page);
+    const page = Number.isInteger(pageValue) && pageValue > 0 ? pageValue : defaultPage;
+
+    const pageSizeValue = Number(options.pageSize);
+    const pageSize = Number.isInteger(pageSizeValue) && pageSizeValue > 0
+      ? Math.min(pageSizeValue, maxPageSize)
+      : defaultPageSize;
+
+    return { page, pageSize };
   }
 
   private validateFilters(filters: BookingFilters): BookingFilters {

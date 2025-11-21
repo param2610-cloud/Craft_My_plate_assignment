@@ -12,7 +12,10 @@ const listBookings = async (req: Request, res: Response, next: NextFunction) => 
       to: typeof req.query.to === 'string' ? req.query.to : undefined
     };
 
-    const bookings = await bookingService.listBookings(filters);
+    const page = typeof req.query.page === 'string' ? Number(req.query.page) : undefined;
+    const pageSize = typeof req.query.pageSize === 'string' ? Number(req.query.pageSize) : undefined;
+
+    const bookings = await bookingService.listBookings(filters, { page, pageSize });
     res.json(bookings);
   } catch (error) {
     next(error as Error);

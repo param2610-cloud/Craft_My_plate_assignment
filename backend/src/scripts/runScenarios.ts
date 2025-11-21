@@ -212,7 +212,8 @@ const run = async () => {
     const to = toIstDateString(addDays(new Date(), 7));
     const summary = await analyticsService.getSummary({ from, to });
     const totalRevenue = summary.reduce((sum, row) => sum + row.totalRevenue, 0);
-    const confirmedRevenue = (await bookingService.listBookings())
+    const bookingList = await bookingService.listBookings({}, { pageSize: 500 });
+    const confirmedRevenue = bookingList.data
       .filter((booking) => booking.status === 'CONFIRMED')
       .reduce((sum, booking) => sum + booking.totalPrice, 0);
     const matches = summary.length > 0 && totalRevenue === confirmedRevenue;
